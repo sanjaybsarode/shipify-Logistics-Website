@@ -74,7 +74,6 @@ const BallastCalculatorPage: React.FC = () => {
         const totalTrim_cm = trimMoment / num(hydrostatics.mctc);
         const totalTrim_m = totalTrim_cm / 100;
         
-        const heelMoment = totalWeight * finalTCG;
         // Simplified heel calculation: Heel Angle (rad) ≈ TCG / GMt. More accurate requires cross curves.
         // Let's use moments. Heel Moment = Disp * TCG * cos(heel). Small angle: Heel Moment = Disp * GZ where GZ = TCG
         // This is complex. A simple approach: Transverse Moment / (Displacement * GMt).
@@ -105,14 +104,14 @@ const BallastCalculatorPage: React.FC = () => {
                 </button>
             </div>
             <div className="space-y-3">
-                {items.map((item, index) => (
+                {items.map((item) => (
                      <div key={item.id} className="grid grid-cols-1 md:grid-cols-6 gap-3 items-end p-3 bg-gray-50 rounded-md border">
-                        <div className="md:col-span-2"><Input label="Name" value={item.name} onChange={e => updateItem(setter, item.id, 'name', e.target.value)} /></div>
-                        <div><Input label="Weight (t)" type="number" value={item.weight} onChange={e => updateItem(setter, item.id, 'weight', e.target.value)} /></div>
-                        <div><Input label="LCG (m)" type="number" value={item.lcg} onChange={e => updateItem(setter, item.id, 'lcg', e.target.value)} /></div>
-                        <div><Input label="TCG (m)" type="number" value={item.tcg} onChange={e => updateItem(setter, item.id, 'tcg', e.target.value)} /></div>
+                        <div className="md:col-span-2"><Input label="Name" value={item.name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateItem(setter, item.id, 'name', e.target.value)} /></div>
+                        <div><Input label="Weight (t)" type="number" value={item.weight} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateItem(setter, item.id, 'weight', e.target.value)} /></div>
+                        <div><Input label="LCG (m)" type="number" value={item.lcg} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateItem(setter, item.id, 'lcg', e.target.value)} /></div>
+                        <div><Input label="TCG (m)" type="number" value={item.tcg} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateItem(setter, item.id, 'tcg', e.target.value)} /></div>
                         <div className="flex items-center gap-2">
-                           <div className="flex-grow"><Input label="VCG (m)" type="number" value={item.vcg} onChange={e => updateItem(setter, item.id, 'vcg', e.target.value)} /></div>
+                           <div className="flex-grow"><Input label="VCG (m)" type="number" value={item.vcg} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateItem(setter, item.id, 'vcg', e.target.value)} /></div>
                             <button onClick={() => setter(i => i.filter(x => x.id !== item.id))} className="text-gray-400 hover:text-red-500 p-1 mb-1">
                                 <TrashIcon className="h-5 w-5"/>
                             </button>
@@ -143,19 +142,19 @@ const BallastCalculatorPage: React.FC = () => {
                                     </button>
                                 </div>
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                    <Input label="Vessel Name" value={vessel.name} onChange={e => updateVessel('name', e.target.value)} />
-                                    <Input label="LBP (m)" type="number" value={vessel.lbp} onChange={e => updateVessel('lbp', e.target.value)} />
-                                    <Input label="Breadth (m)" type="number" value={vessel.breadth} onChange={e => updateVessel('breadth', e.target.value)} />
-                                    <Input label="Water Density (t/m³)" type="number" value={hydrostatics.waterDensity} onChange={e => updateHydro('waterDensity', e.target.value)} />
-                                    <Input label="Lightship (t)" type="number" value={vessel.lightship} onChange={e => updateVessel('lightship', e.target.value)} />
-                                    <Input label="LS LCG (m)" type="number" value={vessel.lcg} onChange={e => updateVessel('lcg', e.target.value)} />
-                                    <Input label="LS TCG (m)" type="number" value={vessel.tcg} onChange={e => updateVessel('tcg', e.target.value)} />
-                                    <Input label="LS VCG (m)" type="number" value={vessel.vcg} onChange={e => updateVessel('vcg', e.target.value)} />
-                                    <Input label="TPC (t/cm)" type="number" value={hydrostatics.tpc} onChange={e => updateHydro('tpc', e.target.value)} />
-                                    <Input label="MCTC (t-m/cm)" type="number" value={hydrostatics.mctc} onChange={e => updateHydro('mctc', e.target.value)} />
-                                    <Input label="LCF (m)" type="number" value={hydrostatics.lcf} onChange={e => updateHydro('lcf', e.target.value)} />
-                                    <Input label="KMt (m)" type="number" value={hydrostatics.km_t} onChange={e => updateHydro('km_t', e.target.value)} />
-                                    <Input label="KMl (m)" type="number" value={hydrostatics.km_l} onChange={e => updateHydro('km_l', e.target.value)} />
+                                    <Input label="Vessel Name" value={vessel.name} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('name', e.target.value)} />
+                                    <Input label="LBP (m)" type="number" value={vessel.lbp} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('lbp', e.target.value)} />
+                                    <Input label="Breadth (m)" type="number" value={vessel.breadth} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('breadth', e.target.value)} />
+                                    <Input label="Water Density (t/m³)" type="number" value={hydrostatics.waterDensity} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateHydro('waterDensity', e.target.value)} />
+                                    <Input label="Lightship (t)" type="number" value={vessel.lightship} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('lightship', e.target.value)} />
+                                    <Input label="LS LCG (m)" type="number" value={vessel.lcg} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('lcg', e.target.value)} />
+                                    <Input label="LS TCG (m)" type="number" value={vessel.tcg} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('tcg', e.target.value)} />
+                                    <Input label="LS VCG (m)" type="number" value={vessel.vcg} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('vcg', e.target.value)} />
+                                    <Input label="TPC (t/cm)" type="number" value={hydrostatics.tpc} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateHydro('tpc', e.target.value)} />
+                                    <Input label="MCTC (t-m/cm)" type="number" value={hydrostatics.mctc} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateHydro('mctc', e.target.value)} />
+                                    <Input label="LCF (m)" type="number" value={hydrostatics.lcf} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateHydro('lcf', e.target.value)} />
+                                    <Input label="KMt (m)" type="number" value={hydrostatics.km_t} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateHydro('km_t', e.target.value)} />
+                                    <Input label="KMl (m)" type="number" value={hydrostatics.km_l} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateHydro('km_l', e.target.value)} />
                                 </div>
                             </div>
                             {renderWeightList("Cargo Items", cargo, setCargo)}

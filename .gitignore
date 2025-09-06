@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# The directory where gh-pages publishes (adjust if your build output is not 'dist')
+dist
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

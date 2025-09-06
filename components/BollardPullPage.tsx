@@ -78,7 +78,6 @@ const BollardPullPage: React.FC = () => {
     return list;
   }, [inputs]);
 
-  const custom = useMemo(() => calc(num(inputs.v), num(inputs.K)), [inputs]);
   
   const status = (bpFinal: number) => {
     const ok = num(inputs.actualTugBP) >= bpFinal;

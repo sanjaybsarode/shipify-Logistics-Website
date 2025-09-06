@@ -25,7 +25,7 @@ export const startChatSession = async (): Promise<Chat | null> => {
     }
     try {
         const chat = ai.chats.create({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-1.5-flash',
             config: {
                 systemInstruction: 'You are a helpful logistics assistant for a company called Shipify. Be friendly, concise, and professional. Answer questions about shipping, logistics, tariffs, and the features of the Shipify application.'
             }
@@ -62,13 +62,13 @@ export const getShipmentUpdate = async (question: string): Promise<string> => {
         `;
 
         const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-1.5-flash',
             contents: prompt,
             config: {
                 temperature: 0.2,
             }
         });
-        return response.text;
+        return response.text ?? "I am sorry, I could not generate a response.";
     } catch (error) {
         console.error('Gemini API call for shipment update failed:', error);
         return 'An error occurred while communicating with the AI. Please try again later.';
@@ -102,13 +102,13 @@ export const getTariffExplanation = async (tariff: Tariff): Promise<string> => {
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-1.5-flash',
       contents: prompt,
       config: {
         temperature: 0.3,
       }
     });
-    return response.text;
+    return response.text ?? "I am sorry, I could not generate a response.";
   } catch (error) {
     console.error('Gemini API call failed:', error);
     return 'An error occurred while communicating with the AI. Please try again later.';

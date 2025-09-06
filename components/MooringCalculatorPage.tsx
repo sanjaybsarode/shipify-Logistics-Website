@@ -6,7 +6,6 @@ const num = (v: any): number => {
     const n = typeof v === 'string' ? parseFloat(v) : v;
     return isFinite(n) ? n : 0;
 };
-const mps_to_knots = (mps: number): number => mps * 1.94384;
 const knots_to_mps = (knots: number): number => knots * 0.514444;
 
 const initialState = {
@@ -113,25 +112,25 @@ const MooringCalculatorPage: React.FC = () => {
                                     <div>
                                         <h4 className="font-semibold text-gray-700">Vessel Particulars</h4>
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
-                                            <Input label="LOA (m)" type="number" value={vessel.loa} onChange={e => updateVessel('loa', e.target.value)} />
-                                            <Input label="Breadth (m)" type="number" value={vessel.breadth} onChange={e => updateVessel('breadth', e.target.value)} />
-                                            <Input label="Draft (m)" type="number" value={vessel.draft} onChange={e => updateVessel('draft', e.target.value)} />
-                                            <Input label="Freeboard (m)" type="number" value={vessel.freeboard} onChange={e => updateVessel('freeboard', e.target.value)} />
+                                            <Input label="LOA (m)" type="number" value={vessel.loa} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('loa', e.target.value)} />
+                                            <Input label="Breadth (m)" type="number" value={vessel.breadth} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('breadth', e.target.value)} />
+                                            <Input label="Draft (m)" type="number" value={vessel.draft} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('draft', e.target.value)} />
+                                            <Input label="Freeboard (m)" type="number" value={vessel.freeboard} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateVessel('freeboard', e.target.value)} />
                                         </div>
                                     </div>
                                     <div className="border-t pt-6">
                                         <h4 className="font-semibold text-gray-700">Environmental Conditions</h4>
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
-                                            <Input label="Wind Speed (knots)" type="number" value={environment.windSpeed_knots} onChange={e => updateEnv('windSpeed_knots', e.target.value)} />
-                                            <Input label="Current Speed (knots)" type="number" value={environment.currentSpeed_knots} onChange={e => updateEnv('currentSpeed_knots', e.target.value)} />
+                                            <Input label="Wind Speed (knots)" type="number" value={environment.windSpeed_knots} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateEnv('windSpeed_knots', e.target.value)} />
+                                            <Input label="Current Speed (knots)" type="number" value={environment.currentSpeed_knots} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateEnv('currentSpeed_knots', e.target.value)} />
                                         </div>
                                     </div>
                                      <div className="border-t pt-6">
                                         <h4 className="font-semibold text-gray-700">Mooring Line Specification</h4>
                                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-2">
-                                            <Input label="Line MBL (kN)" type="number" value={mooring.mbl} onChange={e => updateMooring('mbl', e.target.value)} />
-                                            <Input label="Total Lines" type="number" value={mooring.numLines} onChange={e => updateMooring('numLines', e.target.value)} />
-                                            <Input label="Safety Factor" type="number" value={mooring.safetyFactor} onChange={e => updateMooring('safetyFactor', e.target.value)} />
+                                            <Input label="Line MBL (kN)" type="number" value={mooring.mbl} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateMooring('mbl', e.target.value)} />
+                                            <Input label="Total Lines" type="number" value={mooring.numLines} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateMooring('numLines', e.target.value)} />
+                                            <Input label="Safety Factor" type="number" value={mooring.safetyFactor} onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateMooring('safetyFactor', e.target.value)} />
                                         </div>
                                     </div>
                                 </div>

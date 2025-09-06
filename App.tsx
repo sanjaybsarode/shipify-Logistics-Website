@@ -190,7 +190,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 flex flex-col">
-      {isPublicPage && <SiteHeader onNavigate={setPage} currentPage={page} currentUser={currentUser} onLogout={handleLogout} />}
+      {isPublicPage && <SiteHeader onNavigate={setPage} currentPage={page} />}
       <main className="flex-grow">
         {renderPage()}
       </main>

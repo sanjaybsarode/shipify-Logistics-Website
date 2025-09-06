@@ -118,7 +118,7 @@ const LoadCalculatorPage: React.FC = () => {
                                     </button>
                                 </div>
                                 <div className="space-y-4">
-                                    {cargoItems.map((item, index) => (
+                                    {cargoItems.map((item) => (
                                         <div key={item.id} className="bg-white p-4 rounded-lg border border-gray-200 grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
                                             <div className="md:col-span-6 flex items-center gap-2">
                                                 <BoxIcon className="h-5 w-5 text-gray-400"/>

@@ -8,7 +8,7 @@ interface MapViewProps {
   vesselName?: string;
 }
 
-const MapView: React.FC<MapViewProps> = ({ latitude, longitude, zoom, vesselName }) => {
+const MapView: React.FC<MapViewProps> = ({ latitude, longitude, vesselName }) => {
   // Construct the OpenStreetMap embed URL.
   // We can add a marker to the map using the `mlat` and `mlon` parameters.
   const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${longitude - 0.5},${latitude - 0.5},${longitude + 0.5},${latitude + 0.5}&layer=mapnik&marker=${latitude},${longitude}`;

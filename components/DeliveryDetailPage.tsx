@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Delivery, User, DeliveryStatus } from '../types';
+import { Delivery, User } from '../types';
 import { getDeliveryById } from '../services/deliveryService';
 
 interface DeliveryDetailPageProps {

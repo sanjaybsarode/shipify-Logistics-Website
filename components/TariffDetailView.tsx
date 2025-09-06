@@ -3,9 +3,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Tariff } from '../types';
 import { getTariffExplanation } from '../services/geminiService';
 import AiSparkleIcon from './icons/AiSparkleIcon';
-import ShipIcon from './icons/ShipIcon';
-import PlaneIcon from './icons/PlaneIcon';
-import { TariffType } from '../types';
 
 interface TariffDetailViewProps {
   tariff: Tariff;
@@ -35,8 +32,6 @@ const TariffDetailView: React.FC<TariffDetailViewProps> = ({ tariff }) => {
     }
   }, [tariff]);
   
-  const Icon = tariff.type === TariffType.SEA ? ShipIcon : PlaneIcon;
-
   return (
     <div className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
         <header className="p-6 bg-gray-50 border-b border-gray-200">

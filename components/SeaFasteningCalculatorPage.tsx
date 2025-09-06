@@ -94,7 +94,6 @@ const SeaFasteningCalculatorPage: React.FC = () => {
   const [padEyeWeldLength, setPadEyeWeldLength] = useState(450); // mm
 
   // Wire rope / turnbuckle
-  const [ropeMBL_kN, setRopeMBL_kN] = useState(800); // wire rope MBL
   const [turnbuckleMSL_kN, setTurnbuckleMSL_kN] = useState(160); // e.g., MKUUD1 3/4 x 180 (placeholder)
 
   const res = useMemo(() => {

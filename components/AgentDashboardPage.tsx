@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Delivery, User, DeliveryStatus } from '../types';
-import { getDeliveriesForAgent, updateDeliveryStatus, getAllDeliveries } from '../services/deliveryService';
+import { updateDeliveryStatus, getAllDeliveries } from '../services/deliveryService';
 
 interface AgentDashboardPageProps {
     user: User;

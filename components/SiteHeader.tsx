@@ -1,16 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { Page } from '../App';
 import Logo from './icons/Logo';
-import { User } from '../types';
 
 interface SiteHeaderProps {
   onNavigate: (page: Page) => void;
   currentPage: Page;
-  currentUser: User | null;
-  onLogout: () => void;
 }
 
-const SiteHeader: React.FC<SiteHeaderProps> = ({ onNavigate, currentPage, currentUser, onLogout }) => {
+const SiteHeader: React.FC<SiteHeaderProps> = ({ onNavigate, currentPage }) => {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isOperateOpen, setIsOperateOpen] = useState(false);
 

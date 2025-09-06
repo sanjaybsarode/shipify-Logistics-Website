@@ -1,5 +1,5 @@
 import { Delivery, DeliveryStatus, User } from '../types';
-import { MOCK_DELIVERIES, MOCK_USERS } from '../data/mockData';
+import { MOCK_DELIVERIES } from '../data/mockData';
 
 const DELIVERY_STORAGE_KEY = 'shipify_deliveries';
 
@@ -38,7 +38,7 @@ export const getDeliveriesForMerchant = async (merchantId: string): Promise<Deli
     return all.filter(d => d.merchantId === merchantId);
 };
 
-export const getDeliveriesForAgent = async (agentId: string): Promise<Delivery[]> => {
+export const getDeliveriesForAgent = async (): Promise<Delivery[]> => {
     await new Promise(res => setTimeout(res, 300));
     const all = getDeliveriesFromStorage();
     // This now returns all deliveries; filtering for assigned/unassigned happens in the component
