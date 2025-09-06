@@ -11,7 +11,5 @@ export default defineConfig(({ mode }) => {
     define: {
       'process.env.API_KEY': JSON.stringify(env.API_KEY)
     },
-    // Set the base path for GitHub Pages deployment
-    base: '/Logistics-Website-APP/',
   };
 });
