@@ -24,7 +24,8 @@
     "components/**/*.tsx",
     "data/**/*.ts",
     "services/**/*.ts",
-    "utils/**/*.ts"
+    "utils/**/*.ts",
+    "custom.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
